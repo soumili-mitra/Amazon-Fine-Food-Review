@@ -11,31 +11,31 @@ import streamlit as st
 from PIL import Image
 def classify_utterance(utt):
     # load the vectorizer
-    loaded_vectorizer1 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer1.pickle', 'rb'))
+    loaded_vectorizer1 = pickle.load(open('vectorizer1.pickle', 'rb'))
 
     # load the model
-    loaded_model1 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification1.model', 'rb'))
+    loaded_model1 = pickle.load(open('lr_classification1.model', 'rb'))
 
-    loaded_vectorizer2 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer2.pickle', 'rb'))
-
-    # load the model
-    loaded_model2 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification2.model', 'rb'))
-    loaded_vectorizer3 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer3.pickle', 'rb'))
+    loaded_vectorizer2 = pickle.load(open('vectorizer2.pickle', 'rb'))
 
     # load the model
-    loaded_model3 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification3.model', 'rb'))
-    loaded_vectorizer4 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer4.pickle', 'rb'))
+    loaded_model2 = pickle.load(open('lr_classification2.model', 'rb'))
+    loaded_vectorizer3 = pickle.load(open('vectorizer3.pickle', 'rb'))
 
     # load the model
-    loaded_model4 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification4.model', 'rb'))
-    loaded_vectorizer5 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer5.pickle', 'rb'))
+    loaded_model3 = pickle.load(open('lr_classification3.model', 'rb'))
+    loaded_vectorizer4 = pickle.load(open('vectorizer4.pickle', 'rb'))
 
     # load the model
-    loaded_model5 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification5.model', 'rb'))
-    loaded_vectorizer6 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/vectorizer6.pickle', 'rb'))
+    loaded_model4 = pickle.load(open('lr_classification4.model', 'rb'))
+    loaded_vectorizer5 = pickle.load(open('vectorizer5.pickle', 'rb'))
 
     # load the model
-    loaded_model6 = pickle.load(open('E:/St.Xaviers notes/semester 4/Paper Publlication/lr_classification6.model', 'rb'))
+    loaded_model5 = pickle.load(open('lr_classification5.model', 'rb'))
+    loaded_vectorizer6 = pickle.load(open('vectorizer6.pickle', 'rb'))
+
+    # load the model
+    loaded_model6 = pickle.load(open('lr_classification6.model', 'rb'))
     # make a prediction
     va1=loaded_model1.predict(loaded_vectorizer1.transform([utt]))
     va2=loaded_model2.predict(loaded_vectorizer2.transform([utt]))
@@ -47,11 +47,11 @@ def classify_utterance(utt):
     total=(va1+va2+va3+va4+va5+va6)
     col1, col2 = st.columns(2)
     if(total>=5):
-        image = Image.open('E:/St.Xaviers notes/semester 4/Paper Publlication/5.jpg')
+        image = Image.open('5.jpg')
         col1.markdown("# Positive")
         col2.image(image)
     else:
-        image = Image.open('E:/St.Xaviers notes/semester 4/Paper Publlication/1.jpg')
+        image = Image.open('1.jpg')
         col1.markdown("# Negative")
         col2.image(image) 
     
